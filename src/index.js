@@ -28,4 +28,16 @@ client.on("guildMemberAdd", (member) => {
   console.log(member)
 })
 
+client.on('interactionCreate', (interaction) => {
+  //checa se a interação é referente a um comando slash
+  if (!interaction.isChatInputCommand()) return;
+
+  if (interaction.commandName === "Hey") {
+    
+    interaction.reply(`${interaction.commandName} pra você também!`)
+    
+  };
+  
+})
+
 client.login(process.env.TOKEN);

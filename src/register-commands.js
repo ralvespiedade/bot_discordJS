@@ -18,6 +18,25 @@ const commands = [
        name: 'primeiro-numero',
        description: 'primeiro numero',
        type: ApplicationCommandOptionType.Number,
+       choices: [
+        {
+          name: 'um',
+          value: 1
+        },
+        {
+          name: 'dois',
+          value: 2
+        },
+        {
+          name: 'tres',
+          value: 3
+        },
+        {
+          name: 'quatro',
+          value: 4
+        },
+
+       ],
        required: true
       },
       {

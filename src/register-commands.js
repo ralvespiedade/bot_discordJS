@@ -5,7 +5,11 @@ const commands = [
   {
     name: 'hey',
     description: 'reply with hey'
-  }
+  },
+  {
+    name: 'ping',
+    description: 'reply with pong'
+  },
 ];
 
 const rest = new REST({ version: '10' }).setToken(process.env.TOKEN);

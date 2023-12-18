@@ -35,8 +35,14 @@ client.on('interactionCreate', (interaction) => {
   if (interaction.commandName === "Hey") {
     
     interaction.reply(`${interaction.commandName} pra você também!`)
-    
+
   };
+
+  if (interaction.commandName === "ping") {
+
+    interaction.reply("PONG!❤️")
+
+  }
   
 })
 

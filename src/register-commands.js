@@ -48,7 +48,14 @@ const commands = [
 
     ]
 
-  }
+  },
+
+  {
+    name: 'embed',
+    description: 'Envia um embed!',
+  },
+
+
 ];
 
 const rest = new REST({ version: '10' }).setToken(process.env.TOKEN);

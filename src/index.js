@@ -1,5 +1,5 @@
 require('dotenv').config()
-const { Client, IntentsBitField } = require('discord.js');
+const { Client, IntentsBitField, EmbedBuilder } = require('discord.js');
 
 
 const client = new Client({
@@ -24,8 +24,29 @@ client.on("messageCreate", (message) => {
 
 })
 
-client.on("guildMemberAdd", (member) => {
-  console.log(member)
+client.on("guildMemberAdd", (memberAdd) => {
+  console.log(`O usuário ${memberAdd.displayName} foi adicionado ao ${memberAdd.guild.name}`)
+  //Teste: enviando um embed quando um membro for adicionado ao servidor
+  const embed = new EmbedBuilder()
+      .setTitle('Teste de Embed')
+      .setDescription('Esse é o campo de descrição do embed.')
+      //para usar uma cor especifica >> 0x + o hexadecimal da cor. Ex: '0xFFFFFF'
+      //use 'Random' para cor aleatória
+      .setColor(0x7600bc)
+      .setFields(
+        { 
+          name: 'Nome do Field',
+          value: 'Valor qualquer do field',
+          inline: true
+        },
+        { 
+          name: 'Nome do Field_2',
+          value: 'Vegundo valor qualquer do field',
+          inline: true
+        },
+      )
+
+  memberAdd.send({embeds: [embed]})
 })
 
 client.on('interactionCreate', (interaction) => {
@@ -49,8 +70,30 @@ client.on('interactionCreate', (interaction) => {
     const num2 = interaction.options.get('segundo-numero').value
 
     interaction.reply(`${num1} + ${num2} = ${num1 + num2}`)
-  }
+  };
+  //Criando comando com embed
+  if (interaction.commandName === "embed") {
+    const embed = new EmbedBuilder()
+      .setTitle('Teste de Embed')
+      .setDescription('Esse é o campo de descrição do embed.')
+      //para usar uma cor especifica >> 0x + o hexadecimal da cor. Ex: '0xFFFFFF'
+      //use 'Random' para cor aleatória
+      .setColor(0x7600bc)
+      .setFields(
+        { 
+          name: 'Nome do Field',
+          value: 'Valor qualquer do field',
+          inline: true
+        },
+        { 
+          name: 'Nome do Field_2',
+          value: 'Vegundo valor qualquer do field',
+          inline: true
+        },
+      )
 
+    interaction.reply({ embeds: [embed] })
+  };
   
 })
 

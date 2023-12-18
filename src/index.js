@@ -42,7 +42,15 @@ client.on('interactionCreate', (interaction) => {
 
     interaction.reply("PONG!❤️")
 
+  };
+
+  if (interaction.commandName === "add") {
+    const num1 = interaction.options.get('primeiro-numero').value
+    const num2 = interaction.options.get('segundo-numero').value
+
+    interaction.reply(`${num1} + ${num2} = ${num1 + num2}`)
   }
+
   
 })
 

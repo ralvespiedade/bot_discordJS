@@ -1,7 +1,7 @@
 require('dotenv').config();
 const { REST, Routes, ApplicationCommandOptionType } = require('discord.js');
 
-const commands = [
+export const commands = [
   {
     name: 'hey',
     description: 'reply with hey'

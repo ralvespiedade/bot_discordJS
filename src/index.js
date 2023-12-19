@@ -21,32 +21,15 @@ client.on("messageCreate", (message) => {
   if (message.content == 'Olá') {
     message.reply('StarWars é bom d++')
   }
-
+  
 })
 
 client.on("guildMemberAdd", (memberAdd) => {
   console.log(`O usuário ${memberAdd.displayName} foi adicionado ao ${memberAdd.guild.name}`)
   //Teste: enviando um embed quando um membro for adicionado ao servidor
-  const embed = new EmbedBuilder()
-      .setTitle('Teste de Embed')
-      .setDescription('Esse é o campo de descrição do embed.')
-      //para usar uma cor especifica >> 0x + o hexadecimal da cor. Ex: '0xFFFFFF'
-      //use 'Random' para cor aleatória
-      .setColor(0x7600bc)
-      .setFields(
-        { 
-          name: 'Nome do Field',
-          value: 'Valor qualquer do field',
-          inline: true
-        },
-        { 
-          name: 'Nome do Field_2',
-          value: 'Vegundo valor qualquer do field',
-          inline: true
-        },
-      )
+  
 
-  memberAdd.send({embeds: [embed]})
+  memberAdd.send(`Seja bem vindo, ${memberAdd.user.displayName}!`)
 })
 
 client.on('interactionCreate', (interaction) => {
@@ -71,6 +54,7 @@ client.on('interactionCreate', (interaction) => {
 
     interaction.reply(`${num1} + ${num2} = ${num1 + num2}`)
   };
+
   //Criando comando com embed
   if (interaction.commandName === "embed") {
     const embed = new EmbedBuilder()
